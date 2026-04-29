@@ -1,0 +1,8 @@
+---
+import ServiceChildLayout from '../../../layouts/ServiceChildLayout.astro';
+import { serviceFamilies, getSiblingChildren, makeServiceTitle } from '../../../data/siteData.js';
+export function getStaticPaths() { return serviceFamilies.flatMap((parent) => parent.children.map((child) => ({ params: { parent: parent.slug, child: child.slug }, props: { parent, child } }))); }
+const { parent, child } = Astro.props;
+const siblingServices = getSiblingChildren(parent.slug, child.slug);
+---
+<ServiceChildLayout title={makeServiceTitle(child.name)} description={child.summary} parent={parent} child={child} siblingServices={siblingServices} canonicalPath={`/services/${parent.slug}/${child.slug}/`} />

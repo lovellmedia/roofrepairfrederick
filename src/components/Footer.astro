@@ -1,0 +1,14 @@
+---
+import { site, serviceFamilies } from '../data/siteData.js';
+---
+<footer class="site-footer">
+  <div>
+    <h2>{site.business}</h2>
+    <p>{site.sub}</p>
+  </div>
+  <div class="footer-grid">
+    {serviceFamilies.map((family) => <a href={`/services/${family.slug}/`}>{family.name}</a>)}
+    <a href="/contact/">Request Estimate</a>
+  </div>
+  <p class="fine">© {new Date().getFullYear()} {site.business}. Local lead generation microsite for {site.category.toLowerCase()} searches in Frederick, Maryland.</p>
+</footer>

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, serviceFamilies } from '../data/siteData.js';
+---
+<BaseLayout title={site.title + ' | Frederick, MD'} description={site.sub} canonicalPath="/">
+  <section class="hero">
+    <img src="/images/hero.png" alt={site.hero} />
+    <div class="hero-copy">
+      <p class="eyebrow">Frederick, Maryland</p>
+      <h1>{site.hero}</h1>
+      <p>{site.sub}</p>
+      <div class="hero-actions">
+        <a href="/contact/" class="btn">Request A Local Estimate</a>
+        <a href="/services/" class="btn ghost">Explore Services</a>
+      </div>
+    </div>
+  </section>
+  <section class="proof">{site.proof.map((item) => <div><span></span>{item}</div>)}</section>
+  <section class="home-image-feature">
+    <figure>
+      <img src="/images/home-process.png" alt={site.homeVisualTitle} />
+    </figure>
+    <div>
+      <p class="eyebrow dark">Problem-Focused Planning</p>
+      <h2>{site.homeLead}</h2>
+      <p class="lede">{site.homePain}</p>
+      <p>{site.homePromise}</p>
+    </div>
+  </section>
+  <section class="home-contrast-band">
+    <div class="band-copy">
+      <p class="eyebrow">Why It Matters</p>
+      <h2>{site.homeVisualTitle}</h2>
+      <p>{site.homeVisualBody}</p>
+      <ul class="check-list light-list">{site.homeBullets.map((item) => <li>{item}</li>)}</ul>
+    </div>
+    <aside class="band-panel">
+      <h3>Get A Clear Next Step Today</h3>
+      <p>Tell us what is happening, share the timing, and get a practical scope before you commit.</p>
+      <a href="/contact/" class="btn light">Request Service</a>
+    </aside>
+  </section>
+  <section class="section service-selector">
+    <h2>Choose The Service You Need</h2>
+    <div class="cards">{serviceFamilies.map((family) => <a class="card" href={`/services/${family.slug}/`}><h3>{family.name}</h3><p>{family.shortDescription}</p></a>)}</div>
+  </section>
+  <section class="home-result-section">
+    <div>
+      <p class="eyebrow dark">The Outcome</p>
+      <h2>{site.homeResultTitle}</h2>
+      <p>{site.homeResultBody}</p>
+      <a href="/services/" class="btn secondary">See Service Options</a>
+    </div>
+    <figure>
+      <img src="/images/home-result.png" alt={site.homeResultTitle} />
+    </figure>
+  </section>
+  <section class="conversion-strip image-strip">
+    <img src="/images/home-result.png" alt={site.homeClose} />
+    <div>
+      <p class="eyebrow">Frederick Service Team</p>
+      <h2>{site.homeClose}</h2>
+      <p>{site.homeFinalBody}</p>
+    </div>
+    <a href="/contact/" class="btn light">Request Service</a>
+  </section>
+  <section class="home-final-panel">
+    <div>
+      <h2>Why Property Owners Choose {site.business}</h2>
+      <p>You get direct answers, clear scope, and work that is built around local conditions in Frederick.</p>
+      <p>We keep communication simple, planning practical, and execution clean so you can move forward with confidence.</p>
+      <div class="final-actions"><a href="/contact/" class="btn">Start With A Local Review</a><a href="/services/" class="btn secondary">View Services</a></div>
+    </div>
+    <aside class="sidebar-list">
+      <h3>What You Should Expect</h3>
+      <ul>
+        <li>Plain-English recommendations</li>
+        <li>Transparent scope and priorities</li>
+        <li>Respectful, organized service crews</li>
+        <li>A result reviewed before closeout</li>
+      </ul>
+    </aside>
+  </section>
+</BaseLayout>

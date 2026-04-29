@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/siteData.js';
+const phone = site.phone.replace(/\D/g, '');
+---
+<BaseLayout title={'Contact ' + site.business} description={'Request service from ' + site.business + ' in Frederick, Maryland.'} canonicalPath="/contact/">
+  <section class="page-head"><h1>Contact {site.business}</h1><p>Tell us what is happening at the property and we will help map the next step.</p></section>
+  <section class="section split"><div class="contact-box"><a class="btn" href={`tel:${phone}`}>Call {site.phone}</a><a class="btn secondary" href={`mailto:${site.email}`}>{site.email}</a><p>Share the property address, photos if available, the service you need, and any timing constraints.</p></div><aside class="panel"><h3>Helpful details</h3><p>Property type</p><p>Service needed</p><p>Timing or urgency</p><p>Access constraints</p></aside></section>
+</BaseLayout>

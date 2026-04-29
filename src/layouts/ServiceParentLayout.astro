@@ -1,0 +1,17 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { site } from '../data/siteData.js';
+const { parent, childServices, title, description, canonicalPath } = Astro.props;
+---
+<BaseLayout title={title} description={description} canonicalPath={canonicalPath}>
+  <section class="hero compact">
+    <img src="/images/hero.png" alt={site.business} />
+    <div class="hero-copy"><p class="eyebrow">{site.category} in Frederick</p><h1>{parent.name} in Frederick, MD</h1><p>{parent.shortDescription}</p><a href="/contact/" class="btn">Plan My Project</a></div>
+  </section>
+  <section class="section split">
+    <div><h2>Local {parent.name} planning</h2>{parent.overview.map((p) => <p>{p}</p>)}</div>
+    <aside class="panel"><h3>What this includes</h3>{parent.keyPoints.map((point) => <p>{point}</p>)}</aside>
+  </section>
+  <section class="section"><h2>{parent.name} services</h2><div class="cards">{childServices.map((child) => <a class="card" href={`/services/${parent.slug}/${child.slug}/`}><h3>{child.name}</h3><p>{child.summary}</p></a>)}</div></section>
+  <section class="cta"><h2>Ready for a Frederick-specific plan?</h2><p>Tell us what is happening at the property and we will map the next right step.</p><a href="/contact/" class="btn light">Request Service</a></section>
+</BaseLayout>

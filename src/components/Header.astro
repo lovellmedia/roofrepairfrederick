@@ -1,0 +1,35 @@
+---
+import { site, serviceFamilies } from '../data/siteData.js';
+const phone = site.phone.replace(/\D/g, '');
+---
+<header class="site-header">
+  <a class="brand" href="/"><span>{site.business}</span><small>Frederick, MD</small></a>
+  <nav aria-label="Primary navigation">
+    <details class="services-menu">
+      <summary>Services</summary>
+      <div class="mega-menu">
+        <div class="mega-menu-head">
+          <a href="/services/">All Services</a>
+          <span>Parent services and sub-services</span>
+        </div>
+        <div class="mega-grid">
+          {serviceFamilies.map((family) => (
+            <section class="mega-group">
+              <a class="mega-parent" href={`/services/${family.slug}/`}>{family.name}</a>
+              <div class="mega-children">
+                {family.children.map((child) => (
+                  <a href={`/services/${family.slug}/${child.slug}/`}>{child.name}</a>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </div>
+    </details>
+    <a href="/resources/">Resources</a>
+    <a href="/about/">About</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <a class="phone" href={`tel:${phone}`}>{site.phone}</a>
+</header>

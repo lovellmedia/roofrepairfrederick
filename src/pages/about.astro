@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/siteData.js';
+---
+<BaseLayout title={'About ' + site.business} description={site.business + ' is a Frederick-focused local service brand built around clear planning and dependable execution.'} canonicalPath="/about/">
+  <section class="page-head"><h1>About {site.business}</h1><p>{site.sub}</p></section>
+  <section class="section article"><p>{site.business} exists for property owners who want a straight answer before committing to work. Our site is organized around the specific service questions people search for in Frederick, Maryland, then routes those questions into a practical estimate conversation.</p><p>We emphasize clean scoping, local context, careful scheduling, and durable completion standards. That means the first step is not pressure. The first step is understanding the property, the timing, the risk, and the result you want.</p><p>Frederick properties vary widely, from historic homes and compact townhome lots to newer subdivisions, rural parcels, HOA communities, and small commercial buildings. A useful service plan has to account for those conditions before materials, labor, and timing are finalized.</p></section>
+</BaseLayout>

@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, serviceFamilies } from '../data/siteData.js';
+---
+<BaseLayout title={'Resources | ' + site.title} description={'Frederick service planning resources from ' + site.business + '.'} canonicalPath="/resources/">
+  <section class="page-head"><h1>Frederick Service Resources</h1><p>Planning guidance, service comparisons, and maintenance notes for local properties.</p></section>
+  <section class="section"><div class="cards">{serviceFamilies.map((family) => <a class="card" href={`/services/${family.slug}/`}><h3>{family.name}</h3><p>{family.shortDescription}</p></a>)}</div></section>
+</BaseLayout>
