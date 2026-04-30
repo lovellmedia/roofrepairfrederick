@@ -1,0 +1,30 @@
+---
+import { site } from '../data/siteData.js';
+const { title = site.title, description = site.sub, canonicalPath = Astro.url.pathname, image = '/images/hero.png' } = Astro.props;
+const canonical = new URL(canonicalPath, Astro.site || `https://${site.domain}`);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.business,
+  url: `https://${site.domain}`,
+  telephone: site.phone,
+  email: site.email,
+  image: `https://${site.domain}${image}`,
+  description,
+  address: { '@type': 'PostalAddress', addressLocality: 'Frederick', addressRegion: 'MD', addressCountry: 'US' },
+  areaServed: site.serviceArea,
+  priceRange: '$$'
+};
+---
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical.href} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, canonical).href} />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+<link rel="icon" href="/favicon.svg" />
+<script type="application/ld+json" set:html={JSON.stringify(schema)}></script>

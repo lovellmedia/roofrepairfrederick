@@ -44,18 +44,6 @@ import { site, serviceFamilies } from '../data/siteData.js';
     <h2>Choose The Service You Need</h2>
     <div class="cards">{serviceFamilies.map((family) => <a class="card" href={`/services/${family.slug}/`}><h3>{family.name}</h3><p>{family.shortDescription}</p></a>)}</div>
   </section>
-  <section class="section image-gallery-section">
-    <div class="gallery-head">
-      <p class="eyebrow dark">Local Work Context</p>
-      <h2>See The Details Before You Choose A Scope</h2>
-      <p>Every property has different access, materials, timing, and finish expectations. These visuals show the kind of site-specific conditions we plan around before work begins.</p>
-    </div>
-    <div class="image-gallery">
-      <figure><img src="/images/service-detail-1.png" alt={site.business + ' service planning detail'} /></figure>
-      <figure><img src="/images/service-detail-2.png" alt={site.business + ' repair or specialty service detail'} /></figure>
-      <figure><img src="/images/service-detail-3.png" alt={site.business + ' property-specific service context'} /></figure>
-    </div>
-  </section>
   <section class="home-result-section">
     <div>
       <p class="eyebrow dark">The Outcome</p>
@@ -68,7 +56,7 @@ import { site, serviceFamilies } from '../data/siteData.js';
     </figure>
   </section>
   <section class="conversion-strip image-strip">
-    <img src="/images/service-detail-3.png" alt={site.homeClose} />
+    <img src="/images/home-result.png" alt={site.homeClose} />
     <div>
       <p class="eyebrow">Frederick Service Team</p>
       <h2>{site.homeClose}</h2>
